@@ -39,3 +39,4 @@ end
       self.find_by_name(name)
     else
       self.create_by_name(name)
+    end
