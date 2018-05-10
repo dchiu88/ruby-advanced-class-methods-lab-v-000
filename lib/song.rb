@@ -34,7 +34,7 @@ class Song
   def self.find_by_name(name)
     Song.all.detect {|song| song.name == "#{name}"}
   end
-  
+
   def self.find_or_create_by_name(name)
     if song = self.find_by_name(name)
       return song
@@ -42,11 +42,11 @@ class Song
       Song.create_by_name(name)
     end
   end
-  
+
   def self.alphabetical
-    self.all.sort_by {|word| word.name} 
+    self.all.sort_by {|word| word.name}
   end
-  
+
   def self.new_from_filename(mp3)
     array = mp3.split(/[-.]/).map(&:strip)
     array.pop
@@ -55,7 +55,7 @@ class Song
     song.artist_name = array[0]
     return song
   end
-  
+
   def self.create_from_filename(mp3)
       song = self.new_from_filename(mp3)
       song.save
